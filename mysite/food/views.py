@@ -14,5 +14,5 @@ def item(request):
     return HttpResponse('This is a item view')
 
 # own views 
-def ownview(request):
-    return HttpResponse("<h1/>This was our own views</h1>")
+def detail(request,pk):
+    return HttpResponse("This is ID no/id : %s " % pk)
