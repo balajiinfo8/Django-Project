@@ -17,6 +17,6 @@ def item(request):
 def detail(request,pk):
     item = Item.objects.get(pk=pk)
     context = {
-        'Item' : item,
+        'item' : item, # item same define in the html : 9 to 11
     }
     return render(request,'food/details.html',context)
