@@ -15,4 +15,8 @@ def item(request):
 
 # own views 
 def detail(request,pk):
-    return HttpResponse("This is ID no/id : %s " % pk)
+    item = Item.objects.get(pk=pk)
+    context = {
+        'Item' : item,
+    }
+    return render(request,'food/details.html',context)
