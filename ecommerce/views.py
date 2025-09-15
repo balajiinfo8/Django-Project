@@ -78,7 +78,7 @@ def UploadProduct(request):
             return redirect('product-view')
     else:
         form = ProductForm()
-    return render(request, "upload_product.html", {'form': form})
+    return render(request, "update_product.html", {'form': form,'mode':'upload'})
 
 # View single product details
 def ProductDetail(request, pk):
@@ -92,7 +92,7 @@ def ProductEdit(request, pk):
     if form.is_valid():
         form.save()
         return redirect('product-view')
-    return render(request, 'update_product.html', {'form': form})
+    return render(request, 'upload_product.html', {'form': form,'mode':'edit'})
 
 # Delete product
 def DeleteProduct(request, pk):

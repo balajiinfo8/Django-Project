@@ -12,12 +12,6 @@
         <h1 class="text-2xl font-bold text-center mb-10">Upload New Product</h1>
 
 
-          <!-- Debug: Check if form is passed from view -->
-        <div class="bg-red-100 p-4 mb-6 rounded">
-            <h2 class="font-semibold text-red-700">Debug: Raw Form Output</h2>
-            {{ form }}
-        </div>
-
         <form method="POST" enctype="multipart/form-data" class="max-w-xl mx-auto bg-white p-6 rounded shadow space-y-6">
             {% csrf_token %}
 
