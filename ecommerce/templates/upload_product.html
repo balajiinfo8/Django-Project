@@ -1,0 +1,57 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto px-4 py-10">
+        <h1 class="text-2xl font-bold text-center mb-10">Upload New Product</h1>
+
+
+          <!-- Debug: Check if form is passed from view -->
+        <div class="bg-red-100 p-4 mb-6 rounded">
+            <h2 class="font-semibold text-red-700">Debug: Raw Form Output</h2>
+            {{ form }}
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" class="max-w-xl mx-auto bg-white p-6 rounded shadow space-y-6">
+            {% csrf_token %}
+
+            <!-- Title -->
+            <div>
+                {{ form.title.label_tag }}
+                {{ form.title|add_class:"w-full px-3 py-2 border border-gray-300 rounded" }}
+            </div>
+
+            <!-- Description (custom height and width) -->
+            <div>
+                {{ form.description.label_tag }}
+                {{ form.description|add_class:"w-full h-24 px-3 py-2 border border-gray-300 rounded resize-none" }}
+            </div>
+
+            <!-- Image -->
+            <div>
+                {{ form.image.label_tag }}
+                {{ form.image|add_class:"w-full px-3 py-2 border border-gray-300 rounded" }}
+            </div>
+
+            <!-- Price -->
+            <div>
+                {{ form.price.label_tag }}
+                {{ form.price|add_class:"w-full px-3 py-2 border border-gray-300 rounded" }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Upload
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
